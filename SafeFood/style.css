@@ -1,0 +1,2797 @@
+html,
+body {
+    margin: 0;
+
+    min-height: 100%;
+
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #eef7f0;
+
+    color: #1f2937;
+
+    height: 100vh;
+}
+
+
+/* =========================
+   BARRA SUPERIOR
+========================= */
+
+.barra {
+    height: 80px;
+
+    background-color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    border-bottom: 1px solid #dfe7e1;
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #15803d;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   CONTROLES
+========================= */
+
+.controles {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.buscador {
+    width: 300px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 14px;
+
+    background-color: #f3f6f4;
+
+    border: 1px solid #d7ded9;
+
+    border-radius: 10px;
+}
+
+.buscador input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   INTOLERANCIAS
+========================= */
+
+.intolerancias {
+    position: relative;
+}
+
+#botonIntolerancias {
+    height: 45px;
+
+    padding: 0 17px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #15803d;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+#botonIntolerancias:hover {
+    background-color: #166534;
+}
+
+
+/* MENU */
+
+.menu-intolerancias {
+    position: absolute;
+
+    top: 55px;
+
+    right: 0;
+
+    width: 220px;
+
+    background-color: white;
+
+    border: 1px solid #dfe7e1;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    display: none;
+}
+
+.menu-intolerancias.mostrar {
+    display: block;
+}
+
+.menu-intolerancias label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    border-radius: 7px;
+}
+
+.menu-intolerancias label:hover {
+    background-color: #f0fdf4;
+}
+
+.menu-intolerancias input {
+    width: 17px;
+
+    height: 17px;
+}
+
+
+/* =========================
+   MAPA
+========================= */
+
+main {
+    height: calc(100vh - 80px);
+}
+
+#mapa {
+    width: 100%;
+
+    height: 100%;
+
+    background-color: #dce8df;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .barra {
+        height: auto;
+
+        min-height: 125px;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+
+    .logo {
+        text-align: center;
+
+        font-size: 23px;
+    }
+
+
+    .controles {
+        width: 100%;
+
+        gap: 8px;
+    }
+
+
+    .buscador {
+        flex: 1;
+
+        width: auto;
+    }
+
+
+    #botonIntolerancias {
+        padding: 0 12px;
+    }
+
+
+    .menu-intolerancias {
+        right: 0;
+
+        width: 210px;
+    }
+
+
+    main {
+        height: calc(100vh - 125px);
+    }
+
+    .pagina-agregar {
+        padding: 20px 12px;
+    }
+
+
+    .formulario-lugar {
+        padding: 22px;
+    }
+
+
+    .checkboxes {
+        grid-template-columns: 1fr;
+    }
+
+    #mapaSeleccion {
+        height: 280px;
+    }
+}
+
+/* =========================
+   POPUP DEL MAPA
+========================= */
+
+.popup-lugar {
+    min-width: 190px;
+}
+
+.popup-lugar h3 {
+    margin-bottom: 6px;
+
+    color: #15803d;
+
+    font-size: 17px;
+}
+
+.popup-lugar .direccion {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+.popup-lugar hr {
+    border: none;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin: 10px 0;
+}
+
+.opciones {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 8px;
+}
+
+.etiqueta {
+    background-color: #dcfce7;
+
+    color: #166534;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+/* =========================
+   FORMULARIO AGREGAR LUGAR
+========================= */
+
+.pagina-agregar {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 30px 20px;
+
+    box-sizing: border-box;
+}
+
+
+.formulario-lugar {
+    width: 100%;
+
+    max-width: 600px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+
+    margin-bottom: 30px;
+}
+
+
+.formulario-lugar h1 {
+    color: #15803d;
+
+    margin-bottom: 8px;
+}
+
+
+.formulario-lugar>p {
+    color: #6b7280;
+
+    margin-bottom: 25px;
+}
+
+
+.campo {
+    margin-bottom: 20px;
+}
+
+
+.campo>label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+.campo input[type="text"],
+.campo input[type="number"] {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.campo input:focus {
+    border-color: #15803d;
+}
+
+
+.checkboxes {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.checkboxes label {
+    padding: 10px;
+
+    background-color: #f0fdf4;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+.boton-guardar {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #15803d;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.boton-guardar:hover {
+    background-color: #166534;
+}
+
+
+#mensaje {
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #15803d;
+
+    font-weight: bold;
+}
+
+
+.volver {
+    text-decoration: none;
+
+    color: #15803d;
+
+    font-weight: bold;
+}
+
+/* =========================
+   MAPA DEL FORMULARIO
+========================= */
+
+#mapaSeleccion {
+    width: 100%;
+
+    height: 350px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    border: 1px solid #d1d5db;
+
+    margin-top: 10px;
+}
+
+
+.ayuda-mapa {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+
+#coordenadas {
+    color: #15803d;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+}
+
+.boton-admin {
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    background-color: white;
+
+    color: #15803d;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.boton-admin:hover {
+    background-color: #f0fdf4;
+}
+
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .pagina-agregar {
+        padding: 20px 12px;
+    }
+
+
+    .formulario-lugar {
+        padding: 22px;
+    }
+
+
+    .checkboxes {
+        grid-template-columns: 1fr;
+    }
+
+    .boton-admin {
+        padding: 7px 10px;
+
+        font-size: 13px;
+    }
+
+}
+
+/* =========================
+   LOGIN ADMINISTRADOR
+========================= */
+
+.panel-login {
+    max-height: 0;
+
+    overflow: hidden;
+
+    background-color: white;
+
+    transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08);
+
+    padding: 0 20px;
+}
+
+
+.panel-login.mostrar {
+    max-height: 400px;
+
+    padding: 20px;
+}
+
+
+.form-login {
+    width: 100%;
+
+    max-width: 400px;
+
+    margin: 0 auto;
+}
+
+
+.form-login h3 {
+    margin-top: 0;
+
+    color: #15803d;
+
+    text-align: center;
+}
+
+
+.campo-login {
+    margin-bottom: 15px;
+}
+
+
+.campo-login label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: bold;
+}
+
+
+.campo-login input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+
+.boton-login {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #15803d;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.boton-login:hover {
+    background-color: #166534;
+}
+
+.logo img {
+    height: 75px;
+    width: 189px;
+    display: block;
+}
+
+@media (max-width: 189px) {
+
+    .logo img {
+        height: 42px;
+    }
+
+}
+
+
+/* =========================
+   TARJETAS DE LUGARES
+   ========================= */
+
+.lista-lugares {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+
+.tarjeta-lugar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 20px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border: 1px solid #ddd;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.tarjeta-lugar:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+.info-lugar h3 {
+    margin: 0 0 7px 0;
+}
+
+
+.info-lugar p {
+    margin: 0;
+
+    color: #666;
+}
+
+
+.acciones-lugar {
+    display: flex;
+    gap: 10px;
+
+    align-items: center;
+}
+
+
+.boton-editar,
+.boton-eliminar {
+    display: inline-block;
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: transform 0.15s, opacity 0.15s;
+}
+
+
+.boton-editar {
+    background: #e8f1ff;
+    color: #1769aa;
+}
+
+
+.boton-eliminar {
+    background: #ffe8e8;
+    color: #c62828;
+}
+
+
+.boton-editar:hover,
+.boton-eliminar:hover {
+    transform: scale(1.03);
+    opacity: 0.85;
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .tarjeta-lugar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+
+    .acciones-lugar {
+        width: 100%;
+    }
+
+
+    .boton-editar,
+    .boton-eliminar {
+        flex: 1;
+        text-align: center;
+    }
+
+}
+
+/* ============================= */
+/* EDITAR LUGAR */
+/* ============================= */
+
+.formulario-lugar {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-lugar h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 28px;
+}
+
+.formulario-lugar>p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+
+/* CAMPOS */
+
+.formulario-lugar label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.formulario-lugar input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario-lugar input[type="text"]:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+
+/* TÍTULOS DE SECCIÓN */
+
+.formulario-lugar h3 {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+
+/* INTOLERANCIAS */
+
+.intolerancias-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.intolerancias-form label {
+    margin: 0;
+    padding: 12px 14px;
+    background: #f7f8f7;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.intolerancias-form label:hover {
+    background: #eef8ef;
+    border-color: #b8dcb9;
+    transform: translateY(-1px);
+}
+
+.intolerancias-form input {
+    margin-right: 8px;
+}
+
+
+/* MAPA */
+
+#mapaEditar {
+    width: 100%;
+    height: 380px;
+    margin-top: 12px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#coordenadasEditar {
+    margin: 10px 0 0;
+    padding: 9px 12px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* BOTÓN GUARDAR */
+
+.formulario-lugar .boton-guardar {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.formulario-lugar .boton-guardar:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* MENSAJE */
+
+#mensaje {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .formulario-lugar {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .formulario-lugar h1 {
+        font-size: 23px;
+    }
+
+    .intolerancias-form {
+        grid-template-columns: 1fr;
+    }
+
+    #mapaEditar {
+        height: 300px;
+    }
+
+}
+
+/* ============================= */
+/* FORMULARIOS DE CUENTA */
+/* ============================= */
+
+.formulario-lugar form {
+    margin-top: 25px;
+}
+
+.formulario-lugar form label {
+    display: block;
+    margin: 18px 0 7px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.formulario-lugar form input[type="text"],
+.formulario-lugar form input[type="email"],
+.formulario-lugar form input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 11px;
+
+    background: #fafafa;
+
+    font-size: 15px;
+    color: #333;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+
+/* Cuando hacés clic en el campo */
+
+.formulario-lugar form input[type="text"]:focus,
+.formulario-lugar form input[type="email"]:focus,
+.formulario-lugar form input[type="password"]:focus {
+
+    background: #ffffff;
+
+    border-color: #4caf50;
+
+    box-shadow:
+        0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+
+/* Placeholder */
+
+.formulario-lugar form input::placeholder {
+    color: #aaa;
+}
+
+
+/* Botón */
+
+.formulario-lugar form .boton-guardar {
+    margin-top: 25px;
+
+    width: 100%;
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 11px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s,
+        opacity 0.15s;
+}
+
+.formulario-lugar form .boton-guardar:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.formulario-lugar form .boton-guardar:active {
+    transform: translateY(0);
+}
+
+
+/* Texto inferior */
+
+.formulario-lugar>p:last-child {
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: #666;
+    font-size: 14px;
+}
+
+.formulario-lugar>p:last-child a {
+    color: #4caf50;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.formulario-lugar>p:last-child a:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================= */
+/* MÓVIL */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    .formulario-lugar {
+        margin: 15px;
+        padding: 22px;
+    }
+
+    .formulario-lugar h1 {
+        font-size: 24px;
+    }
+
+}
+
+/* ============================= */
+/* CUENTA EN LA BARRA */
+/* ============================= */
+
+.acciones-cuenta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.boton-cuenta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    background: #ffffff;
+    color: #333;
+
+    border: 1px solid #ddd;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s,
+        background 0.15s;
+}
+
+.boton-cuenta:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+.boton-cerrar {
+    background: #fff1f1;
+    color: #c62828;
+    border-color: #f0cccc;
+}
+
+.boton-cerrar:hover {
+    background: #ffe5e5;
+}
+
+.usuario-logueado {
+    padding: 9px 12px;
+
+    border-radius: 10px;
+
+    background: #f2f8f2;
+
+    color: #3f7d43;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .acciones-cuenta {
+        gap: 6px;
+    }
+
+    .boton-cuenta {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .usuario-logueado {
+        display: none !important;
+    }
+
+}
+
+/* =========================
+   BOTONES DE SESIÓN
+   ========================= */
+
+#estadoSesion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 15px;
+}
+
+.boton-sesion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+
+    white-space: nowrap;
+}
+
+.boton-login {
+    background: #ffffff;
+    color: #333;
+    border: 2px solid #ddd;
+}
+
+.boton-login:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+.boton-registro {
+    background: #4caf50;
+    color: white;
+    border: 2px solid #4caf50;
+}
+
+.boton-registro:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+}
+
+.usuario-sesion {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+.boton-cerrar {
+    background: #ffffff;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+}
+
+.boton-cerrar:hover {
+    background: #d32f2f;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   DISTRIBUCIÓN DE LA BARRA
+   ========================= */
+
+.zona-derecha {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#estadoSesion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* =========================
+   SAFEFOOD - CELULAR
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .barra {
+        height: auto;
+        padding: 10px;
+    }
+
+    .zona-derecha {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .controles {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
+    .buscador input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .intolerancias {
+        width: 100%;
+    }
+
+    #botonIntolerancias {
+        width: 100%;
+    }
+
+    #estadoSesion {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-right: 0;
+    }
+
+    .boton-sesion {
+        flex: 1;
+        min-width: 130px;
+    }
+
+}
+
+/* =========================
+   COMENTARIOS
+   ========================= */
+
+.seccion-comentarios {
+    margin-top: 14px;
+}
+
+.seccion-comentarios h4 {
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+.lista-comentarios {
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* =========================
+   TARJETA DE COMENTARIO
+   ========================= */
+
+.comentario {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+}
+
+.cabecera-comentario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.usuario-comentario {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.usuario-comentario strong {
+    display: block;
+    font-size: 14px;
+}
+
+.usuario-comentario small {
+    display: block;
+    margin-top: 2px;
+    color: #888;
+    font-size: 11px;
+}
+
+/* =========================
+   AVATAR
+   ========================= */
+
+.avatar-comentario {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+/* =========================
+   TEXTO
+   ========================= */
+
+.texto-comentario {
+    margin: 10px 0 0;
+    line-height: 1.45;
+    font-size: 13px;
+    color: #333;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   BOTÓN ELIMINAR
+   ========================= */
+
+.boton-eliminar-comentario {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #d32f2f;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.boton-eliminar-comentario:hover {
+    background: #ffe5e5;
+}
+
+/* =========================
+   SIN COMENTARIOS
+   ========================= */
+
+.sin-comentarios {
+    padding: 18px 10px;
+    text-align: center;
+    color: #777;
+}
+
+.icono-sin-comentarios {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.sin-comentarios strong {
+    display: block;
+    color: #444;
+}
+
+.sin-comentarios p {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+/* =========================
+   FORMULARIO
+   ========================= */
+
+.formulario-comentario {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.titulo-formulario-comentario {
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.formulario-comentario textarea {
+    width: 100%;
+    min-height: 75px;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: vertical;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.formulario-comentario textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.12);
+}
+
+.contador-comentario {
+    margin-top: 4px;
+    color: #888;
+    font-size: 10px;
+}
+
+.boton-publicar-comentario {
+    width: 100%;
+    margin-top: 8px;
+    padding: 9px 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #4caf50;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.boton-publicar-comentario:hover {
+    background: #43a047;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   MENSAJE PARA NO LOGUEADOS
+   ========================= */
+
+.mensaje-comentario {
+    margin: 10px 0 0;
+    padding: 10px;
+    border-radius: 9px;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========================
+   DESCRIPCIÓN DEL LOCAL
+   ========================= */
+
+#descripcion {
+    width: 100%;
+    min-height: 100px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+#descripcion:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.descripcion-lugar {
+    margin: 12px 0;
+    padding: 10px 11px;
+    border-radius: 10px;
+    background: #f7f9f7;
+    border-left: 4px solid #4caf50;
+}
+
+.descripcion-lugar strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.descripcion-lugar p {
+    margin: 0;
+    line-height: 1.45;
+    font-size: 12px;
+    color: #555;
+}
+
+/* =========================
+   COMENTARIOS
+   ========================= */
+
+.seccion-comentarios {
+    margin-top: 14px;
+}
+
+.seccion-comentarios h4 {
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+.lista-comentarios {
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.comentario {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+}
+
+.cabecera-comentario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.usuario-comentario {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.usuario-comentario strong {
+    display: block;
+    font-size: 14px;
+}
+
+.usuario-comentario small {
+    display: block;
+    margin-top: 2px;
+    color: #888;
+    font-size: 11px;
+}
+
+.avatar-comentario {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #4caf50;
+    color: white;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    flex-shrink: 0;
+}
+
+.texto-comentario {
+    margin: 10px 0 0;
+
+    line-height: 1.45;
+    font-size: 13px;
+    color: #333;
+
+    overflow-wrap: anywhere;
+}
+
+.boton-eliminar-comentario {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #d32f2f;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.boton-eliminar-comentario:hover {
+    background: #ffe5e5;
+}
+
+
+/* =========================
+   SIN COMENTARIOS
+   ========================= */
+
+.sin-comentarios {
+    padding: 18px 10px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+.icono-sin-comentarios {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.sin-comentarios strong {
+    display: block;
+    color: #444;
+}
+
+.sin-comentarios p {
+    margin: 5px 0 0;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   FORMULARIO
+   ========================= */
+
+.formulario-comentario {
+    margin-top: 14px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+.titulo-formulario-comentario {
+    margin-bottom: 7px;
+
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.formulario-comentario textarea {
+    width: 100%;
+    min-height: 75px;
+
+    box-sizing: border-box;
+
+    padding: 10px;
+
+    resize: vertical;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.formulario-comentario textarea:focus {
+    outline: none;
+
+    border-color: #4caf50;
+
+    box-shadow:
+        0 0 0 2px rgba(76, 175, 80, 0.12);
+}
+
+.contador-comentario {
+    margin-top: 4px;
+
+    color: #888;
+
+    font-size: 10px;
+}
+
+.boton-publicar-comentario {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 9px 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #4caf50;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.boton-publicar-comentario:hover {
+    background: #43a047;
+
+    transform: translateY(-1px);
+}
+
+.mensaje-comentario {
+    margin: 10px 0 0;
+
+    padding: 10px;
+
+    border-radius: 9px;
+
+    background: #f5f5f5;
+    color: #666;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   PANEL LATERAL DE LOCALES
+========================= */
+
+.panel-lugar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-width: 92vw;
+    height: 100vh;
+    height: 100dvh;
+    background: #ffffff;
+    z-index: 2000;
+    padding: 28px 22px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    box-shadow: -5px 0 22px rgba(0, 0, 0, 0.18);
+
+    transform: translateX(105%);
+    visibility: hidden;
+    transition:
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.panel-lugar.abierto {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.cerrar-panel-lugar {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 12px;
+    border: none;
+    background: #f1f1f1;
+    color: #333333;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cerrar-panel-lugar:hover {
+    background: #e2e2e2;
+}
+
+#contenidoPanelLugar h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+#contenidoPanelLugar p {
+    overflow-wrap: anywhere;
+}
+
+#contenidoPanelLugar .etiqueta {
+    display: inline-block;
+    margin: 4px;
+}
+
+#contenidoPanelLugar .seccion-comentarios {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .panel-lugar {
+        width: 100%;
+        max-width: 100%;
+        padding: 22px 18px;
+    }
+}
+
+
+/* ========================================
+   SAFEFOOD — DISEÑO PROFESIONAL DEL PANEL
+======================================== */
+
+.panel-lugar {
+    background: #f7faf8;
+    color: #24332d;
+    padding: 24px 22px 32px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #b9d8c8 transparent;
+}
+
+.panel-lugar.abierto {
+    box-shadow: -8px 0 32px rgba(23, 65, 45, 0.16);
+}
+
+.panel-lugar .cerrar-panel-lugar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    margin: 0 0 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dce9e1;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #285c43;
+    font-size: 29px;
+    box-shadow: 0 3px 12px rgba(22, 60, 42, 0.08);
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.panel-lugar .cerrar-panel-lugar:hover {
+    background: #e8f5ed;
+    transform: rotate(90deg);
+}
+
+/* Contenido general */
+
+.panel-lugar #contenidoPanelLugar {
+    width: 100%;
+    min-width: 0;
+}
+
+.panel-lugar #contenidoPanelLugar .popup-lugar {
+    width: 100%;
+    color: #34453c;
+    font-size: 15px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.panel-lugar #contenidoPanelLugar h3 {
+    margin: 0 0 18px;
+    padding: 0 0 17px;
+    border-bottom: 3px solid #dcefe3;
+    color: #185d40;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+    overflow-wrap: anywhere;
+}
+
+.panel-lugar #contenidoPanelLugar h4 {
+    margin: 0 0 12px;
+    color: #245d43;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.panel-lugar #contenidoPanelLugar p {
+    margin: 8px 0 12px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.panel-lugar #contenidoPanelLugar strong {
+    color: #304a3b;
+}
+
+.panel-lugar #contenidoPanelLugar hr {
+    border: 0;
+    border-top: 1px solid #dce8e0;
+    margin: 22px 0;
+}
+
+/* Descripción del establecimiento */
+
+.panel-lugar #contenidoPanelLugar .descripcion-lugar {
+    margin: 18px 0;
+    padding: 17px;
+    background: #ffffff;
+    border: 1px solid #e1ece5;
+    border-left: 4px solid #389568;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(27, 71, 49, 0.04);
+}
+
+.panel-lugar #contenidoPanelLugar .descripcion-lugar p {
+    margin-bottom: 0;
+}
+
+/* Etiquetas de intolerancias, servicios y pagos */
+
+.panel-lugar #contenidoPanelLugar .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.panel-lugar #contenidoPanelLugar .etiqueta {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 0;
+    padding: 7px 11px;
+    border: 1px solid #cce8d7;
+    border-radius: 9px;
+    background: #eaf7ef;
+    color: #216842;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* Información de contacto y enlaces */
+
+.panel-lugar #contenidoPanelLugar .contactos-lugar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.panel-lugar #contenidoPanelLugar .contactos-lugar p {
+    margin: 0;
+}
+
+.panel-lugar #contenidoPanelLugar .contactos-lugar a,
+.panel-lugar #contenidoPanelLugar .popup-lugar > p > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #cfe5d7;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #216842;
+    font-weight: 650;
+    text-decoration: none;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.panel-lugar #contenidoPanelLugar .contactos-lugar a:hover,
+.panel-lugar #contenidoPanelLugar .popup-lugar > p > a:hover {
+    background: #eaf7ef;
+    border-color: #82c49d;
+    transform: translateY(-1px);
+}
+
+/* Teléfono, WhatsApp, Instagram y menú */
+
+.panel-lugar #contenidoPanelLugar a[href^="tel:"] {
+    color: #245c90;
+    border-color: #d3e4f4;
+    background: #f3f8fd;
+}
+
+.panel-lugar #contenidoPanelLugar a[href^="https://wa.me/"] {
+    color: #176b43;
+    border-color: #bde4cb;
+    background: #eaf8ef;
+}
+
+.panel-lugar #contenidoPanelLugar a[href*="instagram.com"] {
+    color: #9c356c;
+    border-color: #f0d4e3;
+    background: #fff5fa;
+}
+
+/* Sección de comentarios */
+
+.panel-lugar #contenidoPanelLugar .seccion-comentarios {
+    margin-top: 24px;
+    padding-top: 3px;
+}
+
+.panel-lugar #contenidoPanelLugar .lista-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel-lugar #contenidoPanelLugar .comentario {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #e0eae3;
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 3px 12px rgba(27, 71, 49, 0.04);
+}
+
+.panel-lugar #contenidoPanelLugar .cabecera-comentario {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.panel-lugar #contenidoPanelLugar .usuario-comentario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.panel-lugar #contenidoPanelLugar .avatar-comentario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #dff1e6;
+    color: #216842;
+    font-weight: 750;
+    font-size: 16px;
+}
+
+.panel-lugar #contenidoPanelLugar .usuario-comentario strong {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.panel-lugar #contenidoPanelLugar .usuario-comentario small {
+    display: block;
+    margin-top: 2px;
+    color: #718078;
+    font-size: 12px;
+}
+
+.panel-lugar #contenidoPanelLugar .texto-comentario {
+    margin: 13px 0 0;
+    color: #3c4b43;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.panel-lugar #contenidoPanelLugar .sin-comentarios {
+    padding: 24px 16px;
+    border: 1px dashed #c9ded1;
+    border-radius: 13px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.panel-lugar #contenidoPanelLugar .sin-comentarios strong {
+    display: block;
+    margin-top: 8px;
+}
+
+.panel-lugar #contenidoPanelLugar .sin-comentarios p {
+    margin-bottom: 0;
+    color: #68796f;
+    font-size: 14px;
+}
+
+.panel-lugar #contenidoPanelLugar .icono-sin-comentarios {
+    font-size: 28px;
+}
+
+/* Formulario para publicar opiniones */
+
+.panel-lugar #contenidoPanelLugar .titulo-formulario-comentario {
+    margin: 20px 0 10px;
+    color: #245d43;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.panel-lugar #contenidoPanelLugar
+.formulario-comentario textarea {
+    display: block;
+    width: 100%;
+    min-height: 110px;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #d5e4da;
+    border-radius: 11px;
+    background: #ffffff;
+    color: #24332d;
+    font: inherit;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.panel-lugar #contenidoPanelLugar
+.formulario-comentario textarea:focus {
+    border-color: #399366;
+    box-shadow: 0 0 0 3px rgba(57, 147, 102, 0.13);
+}
+
+.panel-lugar #contenidoPanelLugar .contador-comentario {
+    margin: 6px 0 12px;
+    color: #718078;
+    font-size: 12px;
+}
+
+.panel-lugar #contenidoPanelLugar .boton-publicar-comentario {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 10px;
+    background: #24784f;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.panel-lugar #contenidoPanelLugar .boton-publicar-comentario:hover {
+    background: #185e3c;
+    transform: translateY(-1px);
+}
+
+.panel-lugar #contenidoPanelLugar .mensaje-comentario {
+    padding: 12px;
+    border-radius: 9px;
+    background: #edf4ef;
+    color: #53675b;
+    font-size: 13px;
+}
+
+/* Botón para eliminar un comentario */
+
+.panel-lugar #contenidoPanelLugar .boton-eliminar-comentario {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #f0d6d6;
+    border-radius: 9px;
+    background: #fff7f7;
+    color: #ad4141;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.panel-lugar #contenidoPanelLugar .boton-eliminar-comentario:hover {
+    background: #ffe8e8;
+}
+
+/* Accesibilidad del teclado */
+
+.panel-lugar button:focus-visible,
+.panel-lugar a:focus-visible,
+.panel-lugar textarea:focus-visible {
+    outline: 3px solid #7bbd98;
+    outline-offset: 3px;
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 600px) {
+
+    .panel-lugar {
+        padding: 18px 17px 28px;
+    }
+
+    .panel-lugar #contenidoPanelLugar h3 {
+        font-size: 25px;
+    }
+
+    .panel-lugar #contenidoPanelLugar .popup-lugar {
+        font-size: 14px;
+    }
+
+    .panel-lugar #contenidoPanelLugar .etiqueta {
+        font-size: 12px;
+    }
+
+    .panel-lugar #contenidoPanelLugar .comentario {
+        padding: 12px;
+    }
+
+}
+
+
+/* ==========================================
+   SAFЕFOOD - PANEL DE EMPRESAS
+   ========================================== */
+
+body:has(.lista-locales-empresa) {
+    background: #f3f7f4;
+    color: #20352a;
+}
+
+/* Encabezado del panel */
+body:has(.lista-locales-empresa) .pagina-agregar {
+    width: min(1100px, 92%);
+    margin: 35px auto;
+    padding: 0;
+}
+
+body:has(.lista-locales-empresa) .pagina-agregar h1 {
+    color: #176b43;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin: 0 0 10px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* Botón para registrar un local */
+body:has(.lista-locales-empresa) .formulario-lugar {
+    margin: 22px 0 30px;
+}
+
+body:has(.lista-locales-empresa) .formulario-lugar a,
+body:has(.lista-locales-empresa) a[href*="agregar-lugar"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 20px;
+    background: #198754;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 0 5px 14px rgba(25, 135, 84, 0.16);
+    transition: background 0.2s, transform 0.2s;
+}
+
+body:has(.lista-locales-empresa) .formulario-lugar a:hover,
+body:has(.lista-locales-empresa) a[href*="agregar-lugar"]:hover {
+    background: #146c43;
+    transform: translateY(-2px);
+}
+
+/* Lista de locales */
+.lista-locales-empresa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 22px;
+    margin: 25px 0 45px;
+    padding: 0;
+}
+
+/* Tarjeta individual de cada local */
+.tarjeta-local-empresa {
+    background: #fff;
+    border: 1px solid #e0eae3;
+    border-radius: 18px;
+    padding: 23px;
+    box-shadow: 0 6px 22px rgba(28, 67, 44, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow-wrap: anywhere;
+}
+
+.tarjeta-local-empresa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(28, 67, 44, 0.11);
+}
+
+.tarjeta-local-empresa h2,
+.tarjeta-local-empresa h3 {
+    color: #176b43;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin: 0 0 13px;
+}
+
+.tarjeta-local-empresa p {
+    color: #58675e;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin: 8px 0;
+}
+
+/* Acciones: editar y eliminar */
+.acciones-local-empresa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 17px;
+    border-top: 1px solid #edf1ee;
+}
+
+.acciones-local-empresa a,
+.acciones-local-empresa button {
+    flex: 1 1 115px;
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.acciones-local-empresa .boton-sesion.boton-panel {
+    background: #e4f4e9;
+    color: #176b43;
+}
+
+.acciones-local-empresa .boton-sesion.boton-panel:hover {
+    background: #ccebd7;
+    transform: translateY(-1px);
+}
+
+.acciones-local-empresa .boton-eliminar-local-empresa {
+    background: #fff0ef;
+    color: #b42318;
+}
+
+.acciones-local-empresa .boton-eliminar-local-empresa:hover {
+    background: #fbd9d6;
+    transform: translateY(-1px);
+}
+
+/* Adaptación a celulares */
+@media (max-width: 600px) {
+    body:has(.lista-locales-empresa) .pagina-agregar {
+        width: 92%;
+        margin: 24px auto;
+    }
+
+    .tarjeta-local-empresa {
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+    .acciones-local-empresa {
+        gap: 8px;
+    }
+
+    .acciones-local-empresa a,
+    .acciones-local-empresa button {
+        flex-basis: 100%;
+    }
+}
+
+
+/* Ajustes del encabezado y registro del panel de empresas */
+body:has(.lista-locales-empresa) .pagina-agregar > h1 {
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+body:has(.lista-locales-empresa) .pagina-agregar > p {
+    color: #647368;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+body:has(.lista-locales-empresa) .pagina-agregar a[href*="agregar-lugar"] {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 24px;
+    white-space: normal;
+    text-align: center;
+}
+
+body:has(.lista-locales-empresa) .pagina-agregar form {
+    max-width: 100%;
+}
+
+body:has(.lista-locales-empresa) .pagina-agregar input,
+body:has(.lista-locales-empresa) .pagina-agregar select,
+body:has(.lista-locales-empresa) .pagina-agregar textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   SAFEFOOD - FORMULARIO DE REGISTRO DE LOCAL
+   ========================================= */
+
+body:has(#mapaSeleccion) {
+    background: #f3f7f4;
+    color: #24372b;
+}
+
+/* Contenedor principal */
+body:has(#mapaSeleccion) .pagina-agregar {
+    width: min(1000px, 94%);
+    margin: 35px auto 55px;
+}
+
+/* Tarjeta principal del formulario */
+body:has(#mapaSeleccion) .formulario-lugar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: clamp(20px, 4vw, 42px);
+    background: #ffffff;
+    border: 1px solid #e1eae3;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(31, 70, 45, 0.07);
+}
+
+/* Título y presentación */
+body:has(#mapaSeleccion) .formulario-lugar > h1 {
+    margin: 0;
+    color: #176b43;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+body:has(#mapaSeleccion) .formulario-lugar > p {
+    margin: 0 0 15px;
+    color: #68786d;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+/* Títulos de cada sección */
+body:has(#mapaSeleccion) .formulario-lugar > h3 {
+    margin: 24px 0 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e6eee8;
+    color: #176b43;
+    font-size: 1.18rem;
+    line-height: 1.4;
+    font-weight: 750;
+}
+
+/* Separadores */
+body:has(#mapaSeleccion) .formulario-lugar > hr {
+    width: 100%;
+    height: 1px;
+    margin: 24px 0 8px;
+    border: 0;
+    background: #e6eee8;
+}
+
+/* Etiquetas de los campos */
+body:has(#mapaSeleccion) .formulario-lugar > label {
+    margin-top: 10px;
+    color: #344b3b;
+    font-size: 0.94rem;
+    font-weight: 700;
+}
+
+/* Campos de texto, selectores y áreas de texto */
+body:has(#mapaSeleccion) .formulario-lugar > input,
+body:has(#mapaSeleccion) .formulario-lugar > select,
+body:has(#mapaSeleccion) .formulario-lugar > textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #d6e2d9;
+    border-radius: 10px;
+    background: #fbfdfb;
+    color: #24372b;
+    font: inherit;
+    font-size: 0.96rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+body:has(#mapaSeleccion) .formulario-lugar > textarea {
+    min-height: 105px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+body:has(#mapaSeleccion) .formulario-lugar > input:focus,
+body:has(#mapaSeleccion) .formulario-lugar > select:focus,
+body:has(#mapaSeleccion) .formulario-lugar > textarea:focus {
+    border-color: #26945b;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(38, 148, 91, 0.12);
+}
+
+body:has(#mapaSeleccion) .formulario-lugar > input::placeholder,
+body:has(#mapaSeleccion) .formulario-lugar > textarea::placeholder {
+    color: #96a49a;
+}
+
+/* Grupos de opciones: pagos, servicios y alimentación */
+body:has(#mapaSeleccion) .formulario-lugar .opciones {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 4px 0 12px;
+}
+
+body:has(#mapaSeleccion) .formulario-lugar .opciones > label {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    box-sizing: border-box;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #e0eae3;
+    border-radius: 11px;
+    background: #f8fbf8;
+    color: #3b5041;
+    font-size: 0.94rem;
+    line-height: 1.45;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+body:has(#mapaSeleccion) .formulario-lugar .opciones > label:hover {
+    border-color: #91c9a5;
+    background: #eff8f1;
+}
+
+/* Checkboxes: no deben ocupar todo el ancho */
+body:has(#mapaSeleccion) .formulario-lugar .opciones input[type="checkbox"] {
+    flex: 0 0 17px;
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: #198754;
+    cursor: pointer;
+}
+
+/* Mapa */
+body:has(#mapaSeleccion) #mapaSeleccion {
+    z-index: 1;
+    width: 100%;
+    height: 380px !important;
+    margin: 8px 0 18px;
+    border: 1px solid #dbe6dd;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #eaf1eb;
+}
+
+/* Botón de guardar */
+body:has(#mapaSeleccion) #guardarLugar {
+    width: 100%;
+    min-height: 51px;
+    margin-top: 8px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #198754;
+    color: #ffffff;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 750;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(25, 135, 84, 0.16);
+    transition: background 0.2s, transform 0.2s;
+}
+
+body:has(#mapaSeleccion) #guardarLugar:hover {
+    background: #146c43;
+    transform: translateY(-1px);
+}
+
+body:has(#mapaSeleccion) #guardarLugar:active {
+    transform: translateY(0);
+}
+
+/* Enlace para volver al panel */
+body:has(#mapaSeleccion) .formulario-lugar > a {
+    align-self: center;
+    display: inline-block;
+    margin: 12px 0 0;
+    padding: 10px 16px;
+    border-radius: 9px;
+    color: #176b43;
+    font-weight: 650;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+body:has(#mapaSeleccion) .formulario-lugar > a:hover {
+    background: #edf7ef;
+    text-decoration: underline;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+    body:has(#mapaSeleccion) .pagina-agregar {
+        width: 94%;
+        margin: 18px auto 30px;
+    }
+
+    body:has(#mapaSeleccion) .formulario-lugar {
+        padding: 20px 16px;
+        border-radius: 16px;
+        gap: 8px;
+    }
+
+    body:has(#mapaSeleccion) .formulario-lugar .opciones {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    body:has(#mapaSeleccion) #mapaSeleccion {
+        height: 300px !important;
+    }
+
+    body:has(#mapaSeleccion) .formulario-lugar > h3 {
+        margin-top: 20px;
+    }
+}

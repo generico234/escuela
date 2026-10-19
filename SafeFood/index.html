@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafeFood</title>
+
+    <link rel="icon" href="img/icono.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- BARRA SUPERIOR -->
+
+    <header class="barra">
+
+        <div class="logo">
+
+            <img src="img/logo.jpeg" alt="SafeFood">
+
+        </div>
+
+
+        <div class="zona-derecha">
+
+            <div class="controles">
+
+
+                <!-- BUSCADOR -->
+
+                <div class="buscador">
+
+                    <span>🔍</span>
+
+                    <input type="text" id="buscador" placeholder="Buscar un lugar...">
+
+                </div>
+
+
+                <!-- INTOLERANCIAS -->
+
+                <div class="intolerancias">
+
+                    <button id="botonIntolerancias" type="button">
+                        Opciones alimentarias ▾
+                    </button>
+
+
+                    <div id="menuIntolerancias" class="menu-intolerancias">
+
+                        <label>
+
+                            <input type="checkbox" value="Sin gluten">
+
+                            Sin gluten
+
+                        </label>
+
+
+                        <label>
+
+                            <input type="checkbox" value="Sin lactosa">
+
+                            Sin lactosa
+
+                        </label>
+
+
+                        <label>
+
+                            <input type="checkbox" value="Sin frutos secos">
+
+                            Sin frutos secos
+
+                        </label>
+
+
+                        <label>
+
+                            <input type="checkbox" value="Sin huevo">
+
+                            Sin huevo
+
+                        </label>
+
+
+                        <label>
+
+                            <input type="checkbox" value="Vegetariano">
+
+                            Vegetariano
+
+                        </label>
+
+
+                        <label>
+
+                            <input type="checkbox" value="Vegano">
+
+                            Vegano
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESTADO DE SESIÓN -->
+
+            <div id="estadoSesion"></div>
+
+        </div>
+
+    </header>
+
+
+    <!-- PANEL DE LOGIN -->
+
+    <div id="panelLogin" class="panel-login">
+
+        <form action="verificar-login.php" method="POST" class="form-login">
+
+            <h3>
+                Acceso de administrador
+            </h3>
+
+
+            <div class="campo-login">
+
+                <label for="usuario">
+                    Usuario
+                </label>
+
+                <input type="text" id="usuario" name="usuario" required>
+
+            </div>
+
+
+            <div class="campo-login">
+
+                <label for="contrasena">
+                    Contraseña
+                </label>
+
+                <input type="password" id="contrasena" name="contrasena" required>
+
+            </div>
+
+
+            <button type="submit" class="boton-login">
+                Iniciar sesión
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- MAPA -->
+
+    <main>
+
+        <div id="mapa"></div>
+
+
+        <!-- Panel lateral de información del local -->
+        <div id="panelLugar" class="panel-lugar">
+
+            <button type="button" id="cerrarPanelLugar" class="cerrar-panel-lugar"
+                aria-label="Cerrar información del local">
+                &times;
+            </button>
+
+            <div id="contenidoPanelLugar"></div>
+
+        </div>
+
+
+    </main>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
+```

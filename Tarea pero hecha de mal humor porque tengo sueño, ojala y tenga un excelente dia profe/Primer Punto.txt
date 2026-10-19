@@ -1,0 +1,20 @@
+A: Definir los objetivos de usabilidad
+B: Diseñar y describir el escenario de pruebas
+C: Realizar pruebas de usuario y capturar datos
+D: ¿Se encontraron problemas importantes?
+E: Analizar los datos obtenidos
+F: Identificar aspectos críticos de usabilidad
+G: Realizar ajustes en la interfaz/juego
+H: ¿Se mejoró la usabilidad?
+I: Recoger y analizar comentarios de los usuarios
+J: Evaluar el conjunto y la efectividad del juego
+K: ¿Se han cumplido los objetivos deseados?
+L: Realizar nuevos ajustes necesarios
+M: Realizar tareas finales
+FIN
+
+Se ejecutan en secuencia las tareas A, B y C. Luego se evalúa D: si no hay 
+problemas, el programa finaliza. Si hay problemas, se ejecutan en secuencia 
+E, F y G. Luego se evalúa H: si no mejora la usabilidad, se vuelve a F; si 
+mejora, se continúa con I y J. Finalmente, en K, si se cumplen los objetivos 
+se pasa a M y finaliza, y si no, se ejecuta L y se regresa a H

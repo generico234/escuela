@@ -1,0 +1,7 @@
+SafeFood es una página web creada para ayudar a las personas con intolerancias alimentarias a encontrar restaurantes y negocios que ofrezcan alimentos y productos que puedan consumir. El objetivo principal del proyecto es hacer más fácil la búsqueda de lugares donde puedan comer o comprar alimentos de forma más cómoda y simple.
+
+La página tiene un mapa interactivo que muestra dónde están los distintos establecimientos registrados. Si el usuario selecciona un lugar, puede ver su información, leer una descripción del negocio y revisar los comentarios que han dejado otras personas. Además, la plataforma tiene un menú en la parte superior que permite iniciar sesión y entrar a las diferentes funciones de la página.
+
+SafeFood también deja que los usuarios registrados publiquen comentarios sobre los establecimientos. Así, pueden compartir sus experiencias y opiniones para ayudar a otras personas a elegir dónde comer o comprar productos. Por otro lado, los dueños de restaurantes y negocios pueden iniciar sesión como locales. Así pueden registrar sus establecimientos, agregar su ubicación al mapa y escribir una descripción que haga más fácil su identificación.
+
+Para crear el mapa interactivo se usa la herramienta Leaflet. Esta herramienta muestra los establecimientos y sus ubicaciones de forma visual y sencilla. Así, SafeFood quiere ofrecer una herramienta útil y fácil de usar que ayude a buscar opciones alimentarias adecuadas y conecte a las personas con los negocios que puedan cubrir sus necesidades.

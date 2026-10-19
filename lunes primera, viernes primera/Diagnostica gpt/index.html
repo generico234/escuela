@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+    <section>
+
+        <article>
+            <h1>Registro de Usuario</h1>
+        </article>
+
+        <article>
+            <form onsubmit="return validarFormulario()">
+
+                <div>
+                    <label>APELLIDOS:</label>
+                    <input type="text" id="apellidos" maxlength="25" required>
+                </div>
+
+                <div>
+                    <label>NOMBRES:</label>
+                    <input type="text" id="nombres" maxlength="25" required>
+                </div>
+
+                <div>
+                    <label>DIRECCIÓN:</label>
+                    <input type="text" id="direccion" maxlength="255" required>
+                </div>
+
+                <div>
+                    <label>TELÉFONO:</label>
+                    <input type="text" id="telefono" maxlength="9" pattern="[0-9]{1,9}" required>
+                </div>
+
+                <div>
+                    <label>FECHA DE NACIMIENTO:</label>
+                    <input type="date" id="fecha_nac" min="2010-01-01" required>
+                </div>
+
+                <div>
+                    <label>CORREO ELECTRÓNICO:</label>
+                    <input type="email" id="mail" required>
+                </div>
+
+                <div>
+                    <label>PASSWORD:</label>
+                    <input type="password" id="pass" minlength="8" maxlength="12" required>
+                </div>
+
+                <div>
+                    <label>REPETICIÓN DE PASSWORD:</label>
+                    <input type="password" id="repeat_pass" required>
+                </div>
+
+                <div>
+                    <input type="submit" value="Registrarse">
+                </div>
+
+            </form>
+        </article>
+
+    </section>
+</main>
+
+<script>
+function validarFormulario() {
+
+    let apellidos = document.getElementById("apellidos").value.trim();
+    let nombres = document.getElementById("nombres").value.trim();
+    let direccion = document.getElementById("direccion").value.trim();
+    let telefono = document.getElementById("telefono").value.trim();
+    let fecha = document.getElementById("fecha_nac").value;
+    let mail = document.getElementById("mail").value.trim();
+    let pass = document.getElementById("pass").value;
+    let repeatPass = document.getElementById("repeat_pass").value;
+
+    let valido = true;
+
+    let regexTelefono = /^[0-9]{1,9}$/;
+    let regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let regexPass = /^[A-Za-z0-9]{8,12}$/;
+
+    if (apellidos === "" || apellidos.length > 25) valido = false;
+    if (nombres === "" || nombres.length > 25) valido = false;
+    if (direccion === "" || direccion.length > 255) valido = false;
+
+    if (!regexTelefono.test(telefono)) valido = false;
+
+    if (fecha === "" || fecha < "2010-01-01") valido = false;
+
+    if (!regexMail.test(mail)) valido = false;
+
+    if (!regexPass.test(pass)) valido = false;
+
+    if (pass !== repeatPass || repeatPass === "") valido = false;
+
+    if (valido) {
+        alert("Felicitaciones completaste correctamente el formulario!");
+    } else {
+        alert("Advertencia: los datos no se han registrado dado que hay errores de carga");
+    }
+
+    return valido;
+}
+</script>
+
+</body>
+</html>
